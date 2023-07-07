@@ -7,4 +7,5 @@ export interface Options {
     height?: number;
   };
   signal?: AbortSignal;
+  downloadFolder?: URL;
 }

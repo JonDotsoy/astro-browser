@@ -49,7 +49,8 @@ export class Astro {
     this.session = this.session ??
       await this.mainPage.target().createCDPSession();
 
-    const downloadFolder = new URL("../downloads/", import.meta.url);
+    const downloadFolder = option.downloadFolder ??
+      new URL(await Deno.makeTempDir(), `file:///`);
 
     await Deno.mkdir(downloadFolder, { recursive: true });
 
